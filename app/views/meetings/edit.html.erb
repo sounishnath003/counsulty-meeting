@@ -1,6 +1,7 @@
-<h1>Editing Meeting</h1>
+<h1 class="mb-6 leading-tight ml-6">Editing Meeting</h1>
 
 <%= render 'form', meeting: @meeting %>
 
 <%= link_to 'Show', @meeting %> |
+<%= link_to 'Delete', meeting_path , method: :delete, data: { confirm: 'Are you sure?' } %> | 
 <%= link_to 'Back', meetings_path %>

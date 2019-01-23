@@ -1,0 +1,8 @@
+<%= month_calendar events: meetings do |date, meetings| %>
+  <%= date %>
+  <% meetings.each do |meeting| %>
+    <div>
+      <%= link_to meeting.name, meeting, class: "link text-black shadow-lg py-2 px-2 bg-yellow" %>
+    </div>
+  <% end %>
+<% end %>

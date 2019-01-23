@@ -1,0 +1,17 @@
+<p class="text-grey-dark my-2 text-sm">
+Comment as: <%= current_user.username %>
+</p>
+
+<%= form_for([@meeting, @comments], remote: true) do |f| %>
+ 
+    <div class="relative">
+        <%= f.text_field :reply, class: "input h-32 border-indigo resize-none border", placeholder: "drop any notes or replies here?" %>
+
+        <trix-editor class="h-32 p-4" input="comment-reply" id="comment_reply_trix"></trix-editor>
+
+        <%= f.submit "Submit", disable_with: 'Submiting...' ,
+        class: "btn btn-small btn-indigo block w-full text-center mt-3 lg:inline-flex"
+        %>
+    </div>
+
+<% end %>
