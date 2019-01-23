@@ -1,0 +1,40 @@
+/*
+=* require simple_calendar
+=* require trix
+=* require_tree.
+*/
+
+*{
+    font-family: product sans;
+}
+
+.slide-in-fwd-center {
+	-webkit-animation: slide-in-fwd-center 8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: slide-in-fwd-center 8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+ @-webkit-keyframes slide-in-fwd-center {
+    0% {
+      -webkit-transform: translateZ(-1400px);
+              transform: translateZ(-1400px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-fwd-center {
+    0% {
+      -webkit-transform: translateZ(-1400px);
+              transform: translateZ(-1400px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+  

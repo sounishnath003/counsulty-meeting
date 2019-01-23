@@ -1,10 +1,17 @@
 class MeetingsController < ApplicationController
+  http_basic_authenticate_with name: "dff", password: "secret", except: [:show]
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :user_in?
 
   # GET /meetings
   # GET /meetings.json
   def index
-    @meetings = Meeting.all
+    unless current_user.admin
+      @meetings = current_user.meetings.all
+    else
+      TODO
+    end
   end
 
   # GET /meetings/1
@@ -25,7 +32,7 @@ class MeetingsController < ApplicationController
   # POST /meetings.json
   def create
     @meeting = Meeting.new(meeting_params)
-
+    @meeting.user_id = current_user.id
     respond_to do |format|
       if @meeting.save
         format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
@@ -65,6 +72,11 @@ class MeetingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_meeting
       @meeting = Meeting.find(params[:id])
+    end
+
+    def user_in?
+      if user_signed_in? && current_user == true
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
