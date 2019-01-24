@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :meetings, dependent: :destroy
-  #has_many :comments, foreign_key: "reference_id", dependent: :destroy
+  has_many :comments, foreign_key: "comment_id", dependent: :destroy
 end

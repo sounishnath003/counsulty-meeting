@@ -2,9 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   resources :meetings do 
-    member do 
       resources :comments
-    end
   end
   devise_for :users
   root to: 'home#index'
