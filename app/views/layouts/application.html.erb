@@ -21,6 +21,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <!--trix css + trix js-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.0.0/trix.css">
+
+    <!--onboard stripe api-->
+      <%= tag :meta, name: "stripe-public-key", content: Rails.configuration.stripe[:publishable_key] %>
   </head>
 
  <body class="bg-white">
