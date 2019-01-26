@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_23_115256) do
+ActiveRecord::Schema.define(version: 2019_01_26_190113) do
 
   create_table "comments", force: :cascade do |t|
     t.text "reply"
@@ -54,6 +54,11 @@ ActiveRecord::Schema.define(version: 2019_01_23_115256) do
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "stripe_id"
+    t.string "card_brand"
+    t.string "card_exp_month"
+    t.string "card_exp_year"
+    t.string "card_last4"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
