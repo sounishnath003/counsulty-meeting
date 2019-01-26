@@ -29,7 +29,8 @@
       <%= render 'comments/form' %>
     <% end %>
 
-    <div id="comments">
+    <div id="comments"> 
+      <h2 class="mt-8 leading-tight mb-8"><%= @meeting.comments.count %>  Comments added</h2>
       <%= render @meeting.comments %>
     </div>
   </div>
