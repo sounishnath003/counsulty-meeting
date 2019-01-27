@@ -1,10 +1,15 @@
-<div class="py-10 lg:py-20 px-4 border-b border-grey-light mb-4 text-indigo-darker">
-  <div class="container m-auto text-center">
+<div class="py-10 lg:py-20 px-4 border-b border-grey-light mb-4 text-indigo-darker" style="
+    background-attachment: fixed; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+" >
+  <div class="container m-auto text-center" >
     <h1 class="text-xl lg:text-3xl">Welcome to <%= Rails.configuration.application_name %>!</h1>
     <p class="lead my-2 max-w-md m-auto leading-normal text-grey-darker text-lg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quaerat maiores, repellat minus fugit, non modi id.</p>
 
     <% unless user_signed_in? %>
-    <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-primary my-3" %>
+    <%= link_to "Sign Up", new_user_registration_path, class:"btn bg-indigo-dark px-5 text-white my-3" %>
     <% else %>
     <%= link_to "Schedule a new session", new_meeting_path, class:"btn btn-primary my-3" %>
     <% end %>
