@@ -106,5 +106,5 @@ Rails.application.configure do
       password: "weakpass1234"
   }
 
-  config.action_mailer.default_url_options = {host: "letsconsult.herokuapp.com" }
+  config.action_mailer.default_url_options = { :host => "letsconsult.herokuapp.com" }
 end
