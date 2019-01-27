@@ -9,9 +9,9 @@
     <p class="lead my-2 max-w-md m-auto leading-normal text-grey-darker text-lg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quaerat maiores, repellat minus fugit, non modi id.</p>
 
     <% unless user_signed_in? %>
-    <%= link_to "Sign Up", new_user_registration_path, class:"btn bg-indigo-dark px-5 text-white my-3" %>
+    <%= link_to "Sign Up", new_user_registration_path, class:"btn bg-indigo-dark px-5 shadow-lg border-outline text-white my-3" %>
     <% else %>
-    <%= link_to "Schedule a new session", new_meeting_path, class:"btn btn-primary my-3" %>
+    <%= link_to "Schedule a new session", new_meeting_path, class:"btn shadow-lg border-outline btn-primary bg-indigo-dark px-5 text-white my-3" %>
     <% end %>
   </div>
 </div>
