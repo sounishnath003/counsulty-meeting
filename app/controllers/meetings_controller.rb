@@ -61,6 +61,9 @@ class MeetingsController < ApplicationController
       if @meeting.save
         format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
         format.json { render :show, status: :created, location: @meeting }
+
+        MeetingMailer.with(meeting: @meeting, user: current_user).meeting_schedule.deliver
+        #.with(meeting: @meeting, user: current_user).
       else
         format.html { render :new }
         format.json { render json: @meeting.errors, status: :unprocessable_entity }
