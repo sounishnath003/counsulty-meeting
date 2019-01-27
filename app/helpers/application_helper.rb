@@ -9,7 +9,7 @@ module ApplicationHelper
       end
     
     def admin?
-        if user_signed_in? && current_user.admin == true 
+        if user_signed_in? && current_user.admin = true
         end
     end
 

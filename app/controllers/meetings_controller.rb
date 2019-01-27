@@ -7,10 +7,11 @@ class MeetingsController < ApplicationController
   # GET /meetings
   # GET /meetings.json
   def index
-    unless current_user.admin
+    unless current_user.admin?
       @meetings = current_user.meetings.all
     else
       TODO
+      @meetings = current_user.meetings.where(user_id: current_user)
     end
   end
 
