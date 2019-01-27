@@ -11,7 +11,7 @@ class MeetingsController < ApplicationController
     unless current_user.admin?
       @meetings = current_user.meetings.where(user_id: current_user)
     else
-      TODO
+      #TODO
       @meetings = current_user.meetings.all
     end
   end
@@ -100,6 +100,7 @@ class MeetingsController < ApplicationController
   end
 
 
+  # @return [active_session]
   def active_sessions
     @active_sessions = Meeting.where("end_time > ?", Time.now)
   end

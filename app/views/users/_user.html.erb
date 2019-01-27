@@ -4,7 +4,7 @@
     <p>Joined on <%= readable_time(user.created_at) %></p>
 
   </div>
-  <%= link_to 'Delete User', users_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-destroy bg-red text-white hover:bg-red-dark ml-4" if admin? %>
+  <%= link_to 'Delete User', users_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-destroy bg-red text-white hover:bg-red-dark ml-4" if current_user.admin? %>
 </div>
 
 <% if user.meetings.any? %>

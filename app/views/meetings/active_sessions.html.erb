@@ -1,0 +1,18 @@
+<div class="container shadow-lg m-auto bg-white my-12 border rounded-b border-grey-light p-10">
+<h1 class="text-indigo-darker leading-tight leading">Active Sessions</h1>
+
+<% @active_sessions.each do |meeting| %>
+    <div class="flex flex-wrap items-center justify-start p-4 border-b mb-6 border-grey-light">
+      <div class="flex-1 flex justify-between">
+        <div>
+          <%= link_to meeting.name, meeting , {:class => "link hover:text-grey-darker mr-3"} %>
+        </div>
+
+        <div>
+            <%= readable_time(meeting.start_time) %> - <%= readable_time(meeting.end_time) %>
+        </div>
+      </div>
+        <%= link_to 'Cancel Meeting', meeting, class: "btn p-3 hover:bg-red-dark text-white bg-red-light mt-3" , method: :delete, data: {confirm: "Are you sure?. There are no refunds!"} %>
+    </div>
+<% end %>
+</div>
