@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Consulty
 
-Things you may want to cover:
+It's a sweet and simple UI designed and organized webapp for your company day-to-day usuage.
+It's lovely and the beauti of rails to manipulate every conventional connectiona=s,
+and the relational database, to make a data-driven web application
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Why to choose Rails
+   
+ Ruby on Rails is a full feature framework capable of just about anything you need out of a web application. From it’s MVC pattern to is built in CLI, creating and scaling a web app with Rails can save you months of time compared to other frameworks where you need to roll your own solutions to rather common problems.
