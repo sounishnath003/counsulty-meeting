@@ -3,15 +3,16 @@ class MeetingsController < ApplicationController
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :user_in?
+  before_action :must_be_admin, only: [:active_sessions]
 
   # GET /meetings
   # GET /meetings.json
   def index
     unless current_user.admin?
-      @meetings = current_user.meetings.all
+      @meetings = current_user.meetings.where(user_id: current_user)
     else
       TODO
-      @meetings = current_user.meetings.where(user_id: current_user)
+      @meetings = current_user.meetings.all
     end
   end
 
@@ -98,15 +99,25 @@ class MeetingsController < ApplicationController
     end
   end
 
+
+  def active_sessions
+    @active_sessions = Meeting.where("end_time > ?", Time.now)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_meeting
       @meeting = Meeting.find(params[:id])
     end
 
-    def user_in?
-      if user_signed_in? && current_user == true
+    def must_be_admin
+      unless current_user.admin?
+        redirect_to meetings_path, alert: "You don't have access to this page?."
       end
+    end
+
+    def user_in?
+      user_signed_in?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
