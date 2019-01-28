@@ -64,6 +64,9 @@
             <% else %>
             <%= link_to "Dashboard", meetings_path, class: "btn -btn-default btn-block mr-2" %>
             <%= link_to "Schedule New Session", new_meeting_path, class: "btn -btn-default btn-block mr-2" unless admin? %>
+            <% if current_user.meetings.any? %>
+              <%= link_to "Active Sessions", active_sessions_path, class: "btn -btn-default btn-block mr-2" %>
+            <% end %>
             <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn -btn-default btn-block mr-2",
                                         data: {confirm: "Goodbye #{current_user.name}!, See you Soon! "} %>
             <% end %>
