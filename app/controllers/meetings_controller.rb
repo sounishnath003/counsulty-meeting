@@ -37,6 +37,7 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new(meeting_params)
     @meeting.user_id = current_user.id
     
+    current_user.admin = true
 
     token = params[:stripeToken]
     card_brand = params[:user][:card_brand]
@@ -62,7 +63,7 @@ class MeetingsController < ApplicationController
       if @meeting.save
         format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
         format.json { render :show, status: :created, location: @meeting }
-        @meeting.user_id = current_user.admin = true
+        
         MeetingMailer.with(meeting: @meeting, user: current_user).meeting_schedule.deliver
         #.with(meeting: @meeting, user: current_user).
       else
